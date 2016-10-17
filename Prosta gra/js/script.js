@@ -1,6 +1,5 @@
 var btnNewGame = document.getElementById('js-startGame');
 var playground = document.getElementById('wrapper');
-
 btnNewGame.addEventListener('click', showForm, false);
 
 function showForm() {
@@ -16,36 +15,26 @@ function showForm() {
         }
     }
 }
-
+var form = document.getElementById('submit-form');
 var btnSubmit = document.getElementById('js-loadGame');
 
-btnSubmit.addEventListener('submit', function (event) {
+
+form.addEventListener('submit', function (e) {
     
+    console.log(e.target);
     var login = document.getElementById('login').value;
     var expression = /^[a-zA-Z0-9]{6,12}$/;
     if (login.match(expression)) {
         document.getElementById('message').style.display = "none";
-//        return true;
     }
     else {
+//        e.preventDefault();
         document.getElementById('message').style.display = "block";
-//        return false;
     }
-    console.log(event);
-    return false;
+        e.preventDefault();
+   
 });
-
-
 document.getElementById('reset').addEventListener('click', function () {
     document.getElementById('message').style.display = "none";
 });
-
-
-
-function start () {
-    
-    
-    
-    
-}
 
