@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Opis w Google" />
+    <meta name="keywords" content="słowa, kluczowe, wypisane, po, porzecinku" />
+    <title>Prosta gra</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css"> </head>
+
+<body>
+    <div id="wrapper">
+        <h1>Witamy Cię drogi graczu !</h1>
+        <p> Zapraszamy do rywalizacji z komputerem w klasycznej grze:
+            <br> "Kamień papier nożyce".</p>
+        <p>Zasady są <u>proste</u>:</p>
+        <ul>
+            <li>nożyce są silniejsze od papieru, ponieważ go tną</li>
+            <li>kamień jest silniejszy od nożyc, ponieważ je tępi</li>
+            <li>papier jest silniejszy od kamienia, ponieważ go owija</li>
+            <li>w przypadku pokazania dwóch takich samych symboli następuje remis – punktu brak</li>
+            <li>wygrana daje 1 punkt dla zwycięzcy danej rundy</li>
+            <li>zdobycie 10 punktów zapewnia zwycięstwo i wieczną chwałę.</li>
+        </ul>
+        <button class="btn btn-primary" id="js-startGame">To zaczynamy...</button>
+        <div id="modalWindow" class="modal-window">
+            <div class="modal-content">
+                <div class="modal-header"> <span id="close">&times;</span>
+                    <h4>Wprowadź tylko login  i zaczynamy grę !</h4> </div>
+                <div class="modal-body">
+                    <form action="#" class="horizontal-form">
+                       
+                      <div class="input-group">
+                            <label for="login"> Login: </label>
+                        <input type="text" id="login" name="login" required='required'>
+                      </div>
+                       <p id="message" class="bg-danger text-danger">Proszę wprowadzić znaki alfanumeryczne. Długość loginu powinna być od 6 do 12 znaków</p>
+                        <button id='js-loadGame' class="btn btn-success" type="button">Potwierdzam</button>
+                        <button id="reset" class="btn btn-danger" type="reset">Wyczyść</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
