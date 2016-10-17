@@ -13,33 +13,77 @@
     <link rel="stylesheet" href="./css/style.css"> </head>
 
 <body>
-    <div class="container text-center">
-        <h1>Witamy Cię drogi graczu !</h1>
-        <p> Zapraszamy do rywalizacji z komputerem w klasycznej grze:
-            <br> "Kamień papier nożyce".</p>
-        <p>Zasady są <u>proste</u>:</p>
-        
-        <ul>
-            <li>nożyce są silniejsze od papieru, ponieważ go tną</li>
-            <li>kamień jest silniejszy od nożyc, ponieważ je tępi</li>
-            <li>papier jest silniejszy od kamienia, ponieważ go owija</li>
-            <li>w przypadku pokazania dwóch takich samych symboli następuje remis – punktu brak</li>
-            <li>wygrana daje 1 punkt dla zwycięzcy danej rundy</li>
-            <li>zdobycie 10 punktów zapewnia zwycięstwo i wieczną chwałę.</li>
-        </ul>
-        <button class="btn btn-primary" id="js-startGame">To zaczynamy...</button>
+    <div class="container">
+        <div id="introduction">
+            <div class="row">
+                <h1>Witamy Cię drogi graczu !</h1>
+                <p> Zapraszamy do rywalizacji z komputerem w klasycznej grze:
+                    <br> "Kamień papier nożyce".</p>
+                <p>Zasady są <u>proste</u>:</p>
+                <ul>
+                    <li>nożyce są silniejsze od papieru, ponieważ go tną</li>
+                    <li>kamień jest silniejszy od nożyc, ponieważ je tępi</li>
+                    <li>papier jest silniejszy od kamienia, ponieważ go owija</li>
+                    <li>w przypadku pokazania dwóch takich samych symboli następuje remis – punktu brak</li>
+                    <li>wygrana daje 1 punkt dla zwycięzcy danej rundy</li>
+                    <li>zdobycie 10 punktów zapewnia zwycięstwo i wieczną chwałę.</li>
+                </ul>
+            </div>
+        </div>
+        <div id="js-playerPickElement">
+            <div class="row" style="margin-bottom:100px;">
+                <button id="js-playerPick_rock" class="btn"> <span class="badge">
+                        <i class="fa fa-hand-rock-o" aria-hidden="true"></i> </span> Kamień </button>
+                <button id="js-playerPick_paper" class="btn"> <span class="badge">
+                        <i class="fa fa-hand-paper-o" aria-hidden="true"></i></span> Papier </button>
+                <button id="js-playerPick_scissors" class="btn"> <span class="badge">
+                        <i class="fa fa-hand-scissors-o" aria-hidden="true"></i></span> Nożyce </button>
+            </div>
+            <div id="js-resultsTableElement" class="container">
+                <div class="row">
+                    <div class="col-xs-5 text-center"> <span id="js-playerPoints" class="badge">
+      0
+      </span> <span id="js-playerName">
+      Imię gracza
+      </span> </div>
+                    <div class="col-xs-2 text-center"> VS. </div>
+                    <div class="col-xs-5 text-center"> <span id="js-computerPoints" class="badge">
+      0
+      </span> Komputer </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-5 text-center"> <span id="js-playerPick">
+        Wybór gracza
+      </span> </div>
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-5 text-center"> <span id="js-computerPick">
+        Wybór komputera
+      </span> </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-5 text-center"> <span id="js-playerResult">
+        Wynik gracza
+      </span> </div>
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-5 text-center"> <span id="js-computerResult">
+        Wynik komputera
+      </span> </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn btn-primary" id="js-startGame">To zaczynamy...</button>
+        </div>
         <div id="modalWindow" class="modal-window">
             <div class="modal-content">
                 <div class="modal-header"> <span id="close">&times;</span>
                     <h4>Wprowadź tylko login  i zaczynamy grę !</h4> </div>
                 <div class="modal-body">
                     <form id="submit-form" action="#" method="get" class="form form-horizontal">
-                       
-                      <div class="input-group">
+                        <div class="input-group">
                             <label for="login"> Login: </label>
-                        <input type="text" id="login" name="login">
-                      </div>
-                       <p id="message" class="bg-danger text-danger">Proszę wprowadzić znaki alfanumeryczne. Długość loginu powinna być od 6 do 12 znaków</p>
+                            <input class="form-control" type="text" id="login" name="login"> </div>
+                        <p id="message" class="bg-danger text-danger">Proszę wprowadzić znaki alfanumeryczne. Długość loginu powinna być od 6 do 12 znaków</p>
                         <button id='js-loadGame' class="btn btn-success" type="submit">Potwierdzam</button>
                         <button id="reset" class="btn btn-danger" type="reset">Wyczyść</button>
                     </form>
