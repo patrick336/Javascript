@@ -19,22 +19,33 @@ function showForm() {
 
 var btnSubmit = document.getElementById('js-loadGame');
 
-btnSubmit.addEventListener('click', function () {
+btnSubmit.addEventListener('submit', function (event) {
     
     var login = document.getElementById('login').value;
     var expression = /^[a-zA-Z0-9]{6,12}$/;
     if (login.match(expression)) {
         document.getElementById('message').style.display = "none";
-        return true;
+//        return true;
     }
     else {
         document.getElementById('message').style.display = "block";
-        return false;
+//        return false;
     }
-    
+    console.log(event);
+    return false;
 });
 
 
 document.getElementById('reset').addEventListener('click', function () {
     document.getElementById('message').style.display = "none";
 });
+
+
+
+function start () {
+    
+    
+    
+    
+}
+
