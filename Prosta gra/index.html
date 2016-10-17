@@ -32,14 +32,14 @@
                 <div class="modal-header"> <span id="close">&times;</span>
                     <h4>Wprowadź tylko login  i zaczynamy grę !</h4> </div>
                 <div class="modal-body">
-                    <form action="#" class="horizontal-form">
+                    <form action="#" method="get" class="form form-horizontal">
                        
                       <div class="input-group">
                             <label for="login"> Login: </label>
                         <input type="text" id="login" name="login" required='required'>
                       </div>
                        <p id="message" class="bg-danger text-danger">Proszę wprowadzić znaki alfanumeryczne. Długość loginu powinna być od 6 do 12 znaków</p>
-                        <button id='js-loadGame' class="btn btn-success" type="button">Potwierdzam</button>
+                        <button id='js-loadGame' class="btn btn-success" type="submit">Potwierdzam</button>
                         <button id="reset" class="btn btn-danger" type="reset">Wyczyść</button>
                     </form>
                 </div>

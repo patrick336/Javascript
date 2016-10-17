@@ -1,8 +1,9 @@
 var btnNewGame = document.getElementById('js-startGame');
 var playground = document.getElementById('wrapper');
-btnNewGame.addEventListener('click', startGame, false);
 
-function startGame() {
+btnNewGame.addEventListener('click', showForm, false);
+
+function showForm() {
     var modalWindow = document.getElementById('modalWindow');
     var span = document.getElementById('close');
     modalWindow.style.display = 'block';
@@ -15,23 +16,25 @@ function startGame() {
         }
     }
 }
-//var loadGame = document.getElementById('js-loadGame');
-//
-//loadGame.addEventListener('click', function load () {
-//    
-//    return false;
-//});
-var btnSubmit = document.getElementById('js-loadGame')
+
+var btnSubmit = document.getElementById('js-loadGame');
+
 btnSubmit.addEventListener('click', function () {
+    
     var login = document.getElementById('login').value;
     var expression = /^[a-zA-Z0-9]{6,12}$/;
     if (login.match(expression)) {
         document.getElementById('message').style.display = "none";
+        return true;
     }
     else {
         document.getElementById('message').style.display = "block";
+        return false;
     }
+    
 });
+
+
 document.getElementById('reset').addEventListener('click', function () {
     document.getElementById('message').style.display = "none";
 });
