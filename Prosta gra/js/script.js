@@ -17,7 +17,8 @@ var   playerPickElem = document.getElementById('js-playerPick'),
       playerResultElem = document.getElementById('js-playerResult'),
       computerResultElem = document.getElementById('js-computerResult');
 
-
+var modalWindow = document.getElementById('modalWindow');
+var btnNewGame = document.getElementById('js-startGame');
 // Wartości początkowe
 var gameState = 'notStarted'; 
 var player = {
@@ -28,26 +29,30 @@ var player = {
         score: 0
     };
 
+setGameElements();
+
 //Kontrola widoku zależnie od etapu gry.
 function setGameElements() {
-  switch(gameState) {          
+  switch(gameState) {
     case 'started':
         introduction.style.display = 'none';
         newGameElem.style.display = 'none';
         pickElem.style.display = 'block';
         resultsElem.style.display = 'block';
-    break;
+        resultGame.style.display = 'none';  
+      break;
     case 'ended':
-        btnNewGame.innerText = 'Jeszcze raz';
+        btnNewGame.innerHTML = 'Jeszcze raz';
+        resultGame.style.display = 'block';  
     case 'notStarted':
     default:
-        introduction.style.display = 'block';  
+//        introduction.style.display = 'block';
         newGameElem.style.display = 'block';
         pickElem.style.display = 'none';
         resultsElem.style.display = 'none';
   }
 }
-setGameElements();
+
 
 
 // NASŁUCHIWANIE WYBORU GRACZA, FUNKCJA DAJE INFORMACJE CO GRACZ WYBRAŁ
@@ -74,6 +79,7 @@ function playerPick(playerPick) {
     
     playerPickElem.innerHTML = playerPick;
     computerPickElem.innerHTML = computerPick;
+    
     checkRoundWinner(playerPick, computerPick);
 }
 function checkRoundWinner(playerPick, computerPick) {
@@ -108,8 +114,7 @@ function setGamePoints() {
 }
 
 // Zmienne okna modalnego oraz przycisku 'New Game'.
-var modalWindow = document.getElementById('modalWindow');
-var btnNewGame = document.getElementById('js-startGame');
+
 btnNewGame.addEventListener('click', showForm, false);
 
 // POKAZYWANIE OKNA MODALNEGO I JEGO OBSŁUGA
@@ -141,14 +146,14 @@ var btnSubmit = document.getElementById('js-loadGame');
 var message = document.getElementById('message');
 
 form.addEventListener('submit', function (event) {
-  
+    
+    resetValues();
+    
     var login = document.getElementById('login').value;
     var expression = /^[a-zA-Z0-9]{6,12}$/;
     if (login.match(expression)) {
         message.style.display = "none"; //chowamy komunikat jeśli użytkownik wprowadził poprawną wartość
         player.name = login; 
-        player.score = computer.score = 0;  
-        gameState ='started';
         setGameElements();
         playerNameElem.innerHTML = login;
         setGamePoints();
@@ -167,18 +172,31 @@ document.getElementById('reset').addEventListener('click', function () {
 });
 
 
-
+var resultGame = document.getElementById('resultGame');
 function whoWins () {
     
     if(player.score == 10) {
-        alert("WYGRAŁ: "+ player.name+". Gratulacje !");
         gameState = 'ended';
         setGameElements();
+        resultGame.innerHTML = "Wygrał: " + player.name + ". Gratulacje !";
+    }
+    if(computer.score == 10) {
+        gameState = 'ended';
+        setGameElements();
+        resultGame.innerHTML = "Wygrał komputer. Gramy rewanż?";
     }
     
-    if(computer.score == 10) {
-        alert("KOMPUTER ZWYCIĘŻYŁ.Rewanż?")
-        gameState ='ended';
-        setGameElements();
-    }
+      
 }
+
+
+function resetValues () {
+    playerPickElem.innerHTML="";
+    computerPickElem.innerHTML="";
+    playerResultElem.innerHTML="";
+    computerResultElem.innerHTML="";    
+    player.score = computer.score = 0;
+    player.name = "";
+    gameState ='started';
+}
+

@@ -15,7 +15,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', end
     color: aliceblue;
     font-size: 16px;
     text-align: center;
-    padding-top: 70px;
+    padding-top: 150px;
     font-family: 'Source Sans Pro', sans-serif;
 }
 /*
@@ -174,9 +174,27 @@ label {
 .badge {
     background-color: aliceblue;
     color:black;
+    font-size: 18px;
 }
 .btn-white {
     background-color: aliceblue;
     border-color: black;
     border-radius: 0;
+}
+
+#js-playerPickElement button  {
+    margin: 0 15px;
+}
+
+#js-resultsTableElement {
+    font-size: 24px;
+}
+
+#resultGame {
+	 font-size:30px;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Raleway',sans-serif;
+    display: none;
 }
