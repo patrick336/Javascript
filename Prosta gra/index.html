@@ -18,7 +18,8 @@
             <div class="row">
                 <h1>Witamy Cię drogi graczu !</h1>
                 <p> Zapraszamy do rywalizacji z komputerem w klasycznej grze:
-                    <br> "Kamień papier nożyce".</p>
+                    <br> "Kamień papier nożyce".
+                </p>
                 <p>Zasady są <u>proste</u>:</p>
                 <ul>
                     <li>wygrana daje 1 punkt dla zwycięzcy danej rundy</li>
@@ -42,31 +43,41 @@
         <!-- DANE GRACZA, WYBORY,REZULTATY         -->
         <div id="js-resultsTableElement" class="container">
             <div class="row">
-                <div class="col-xs-5 text-center"> 
+                <div class="col-xs-3 text-center"> 
                     <span id="js-playerPoints" class="badge"></span>
                     <span id="js-playerName">Imię gracza:</span> 
                 </div>
-                <div class="col-xs-2 text-center"> VS. </div>
-                <div class="col-xs-5 text-center">
+                <div class="col-xs-2">
+<!--                    <span id="js-playerPick"></span>-->
+                </div>
+                <div class="col-xs-2"></div>
+                <div class="col-xs-2">
+<!--                  <span id="js-computerPick"></span>-->
+                </div>
+                   <div class="col-xs-3 text-center">
                     <span id="js-computerPoints" class="badge"></span> 
                         Komputer 
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-xs-5 text-center">
+                <div class="col-xs-2 col-xs-offset-3 text-right">
                     <span id="js-playerPick"></span>
                 </div>
-                <div class="col-xs-2"></div>
-                <div class="col-xs-5 text-center"> 
+                <div class="col-xs-2 text-center">vs.</div>
+                <div class="col-xs-3 text-left"> 
                     <span id="js-computerPick"></span> 
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-xs-5 text-center"> 
+                <div class="col-xs-3 text-center"> 
                     <span id="js-playerResult"></span> 
                 </div>
-                <div class="col-xs-2"></div>
-                <div class="col-xs-5 text-center">
+                <div class="col-xs-6 text-center">
+                    <span id="js-scoreless"></span>
+                </div>
+                <div class="col-xs-3 text-center">
                     <span id="js-computerResult"></span> 
                 </div>
             </div>

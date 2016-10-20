@@ -167,10 +167,18 @@ label {
     background-color: orange;
 }
 
-.fa {
+#js-playerPickElement .fa {
     font-size:24px;
     color:black;
 }
+#js-playerPick .fa,
+#js-computerPick .fa {
+    
+    font-size: 36px;
+    color:aliceblue;
+}
+
+
 .badge {
     background-color: aliceblue;
     color:black;

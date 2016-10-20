@@ -15,7 +15,8 @@ var   pickRock = document.getElementById('js-playerPick_rock'),
 var   playerPickElem = document.getElementById('js-playerPick'),
       computerPickElem = document.getElementById('js-computerPick'),
       playerResultElem = document.getElementById('js-playerResult'),
-      computerResultElem = document.getElementById('js-computerResult');
+      computerResultElem = document.getElementById('js-computerResult'),
+      scoreless = document.getElementById('js-scoreless');
 
 var modalWindow = document.getElementById('modalWindow');
 var btnNewGame = document.getElementById('js-startGame');
@@ -54,6 +55,29 @@ function setGameElements() {
 }
 
 
+function showPick (movement) {
+    
+    var iconMove = ['<i class="fa fa-hand-rock-o" aria-hidden="true">',
+                    '<i class="fa fa-hand-paper-o" aria-hidden="true"></i>',
+                    '<i class="fa fa-hand-scissors-o" aria-hidden="true"></i>'];
+    
+        
+        
+    switch (movement){
+        case 'rock':
+            return iconMove[0];
+            break;
+        case 'paper':
+            return iconMove[1];
+            break;
+        case 'scissors':
+            return iconMove[2];
+            break;
+        default: console.log('Coś poszło nie tak');
+            
+            
+    }
+}
 
 // NASŁUCHIWANIE WYBORU GRACZA, FUNKCJA DAJE INFORMACJE CO GRACZ WYBRAŁ
 pickRock.addEventListener('click', function() { playerPick('rock') });
@@ -77,13 +101,13 @@ function getComputerPick () {
 function playerPick(playerPick) {
     var computerPick = getComputerPick();
     
-    playerPickElem.innerHTML = playerPick;
-    computerPickElem.innerHTML = computerPick;
+    playerPickElem.innerHTML = showPick(playerPick);
+    computerPickElem.innerHTML = showPick(computerPick);
     
     checkRoundWinner(playerPick, computerPick);
 }
 function checkRoundWinner(playerPick, computerPick) {
-  playerResultElem.innerHTML = computerResultElem.innerHTML = '';
+  playerResultElem.innerHTML = computerResultElem.innerHTML = scoreless.innerHTML='';
 
   var winnerIs = 'player';
 
@@ -103,7 +127,8 @@ function checkRoundWinner(playerPick, computerPick) {
     } else if (winnerIs == 'computer') {
         computerResultElem.innerHTML = "Wygrana!";
         computer.score++;
-    }
+    } else scoreless.innerHTML = "Remis";
+    
     setGamePoints();
     whoWins();
 }
